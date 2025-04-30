@@ -1,24 +1,31 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import './style.css';
+interface SpeechRecognitionEvent {
+  results: SpeechRecognitionResultList;
+}
+
+interface SpeechRecognitionErrorEvent {
+  error: string;
+}
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
+    <h1>Listen to my voice!</h1>
     <div class="card">
-      <button id="counter" type="button"></button>
+      <button id="listen" type="button">Start listening!</button>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
+    <div class="card">
+      <label for="speechResult">Speech Result:</label>
+      <div id="speechResult"></div>
+    </div>
+    <div class="card">
+      <button id="talk" type="button">Start talking!</button>
+    </div>
+    <div class="card">
+      <label for="languageSelect">Language: </label>
+      <select id="languageSelect">
+        <option value="en-US">English (US)</option>
+        <option value="pt-PT">Português (Portugal)</option>
+      </select>
+    </div>
   </div>
-`
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+`;
