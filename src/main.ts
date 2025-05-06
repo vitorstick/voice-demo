@@ -54,3 +54,16 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
   </main>
 `;
+
+const languageSelect = document.getElementById(
+  'languageSelect'
+) as HTMLSelectElement;
+
+// FIRST PART: LISTENING TO THE USER
+const listenButton = document.getElementById('listen');
+listenButton?.addEventListener('click', () => {});
+
+// SECOND PART: SPEAKING TO THE USER
+const talkButton = document.getElementById('talk');
+
+talkButton?.addEventListener('click', () => {});
